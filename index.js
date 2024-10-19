@@ -1,8 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const cors = require("cors");
-
 const userRoutes = require("./Routes/auth_routes");
 const profileRouter = require("./Routes/profileroutes");
 const postRoutes = require("./Routes/Posts_Routes");
@@ -13,7 +11,8 @@ const PORT = 3001;
 const otproutes = require("./Routes/Otproutes");
 require("dotenv").config();
 // Middleware
-app.use(cors({ origin: true }));
+var cors = require('cors');
+app.use(cors())
 app.use(bodyParser.json());
 mongoose
   .connect(process.env.MONGODB_URI)
